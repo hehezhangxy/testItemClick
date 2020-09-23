@@ -10,14 +10,14 @@ import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val data = listOf("apple", "orange", "mango")
+    private val data = listOf("apple", "orange", "mango")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val adapter = listAdapter(this, R.layout.list_item, data)
         listView.adapter = adapter
         adapter.setedit { position -> Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()}
-        adapter.setrename {string ->
+        adapter.setrename {
             AlertDialog.Builder(this).apply {
                 val view: View = layoutInflater.inflate(R.layout.dialogtext, null)
                 val name: EditText = view.findViewById(R.id.intext)
@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
                 show()
             }
 
+        }
+        listView.setOnItemClickListener {parent, view, position, id ->
+            val fruit = data[position]
+            Toast.makeText(this, "$fruit", Toast.LENGTH_SHORT).show()
         }
     }
 }

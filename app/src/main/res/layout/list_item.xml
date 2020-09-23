@@ -13,16 +13,19 @@
 
     <Button
         android:id="@+id/edit"
+        android:focusable="false"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="edit"/>
     <Button
         android:id="@+id/delete"
+        android:focusable="false"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="delete"/>
     <Button
         android:id="@+id/rename"
+        android:focusable="false"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="rename"/>
